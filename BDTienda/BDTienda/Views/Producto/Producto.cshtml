@@ -1,0 +1,39 @@
+﻿@model  List<BDTienda.Models.ViewModels.ListaProducto>
+@{
+    ViewBag.Title = "Producto";
+}
+
+<h2>Producto</h2>
+
+<div class="row" style="text-align:left;padding:5px;">
+    <a href="~/Producto/ProductoRequerido" class="btn btn-primary">Consulta Requerida</a>
+</div>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Producto/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12 ">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+            </tr>
+            @foreach (var prod in Model)
+            {
+                <tr>
+                    <td>@prod.idProducto</td>
+                    <td>@prod.Nombre</td>
+                    <td>@prod.Precio</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Producto/Editar/@prod.idProducto">Editar</a>
+                        <a class="btn btn-danger" href="~/Producto/Eliminar/@prod.idProducto">Eliminar</a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>

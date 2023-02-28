@@ -1,0 +1,24 @@
+﻿@model  IEnumerable<BDTienda.Models.ViewModels.ProductoProveedor>
+@{
+    ViewBag.Title = "Producto por proveedor";
+}
+<h2>Listar productos por proveedor</h2>
+
+<div class="row">
+    <div class="col-md-12 ">
+        <table class="table">
+            <tr>
+                <th>Proveedor</th>
+                <th>Producto</th>
+            </tr>
+            @foreach (var pro in Model)
+            {
+                <tr>
+                    <td>@pro.provee.Nombre</td>
+                    <td>@pro.product.Nombre</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

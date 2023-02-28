@@ -1,0 +1,28 @@
+﻿@model  IEnumerable<BDTienda.Models.ViewModels.CompraCliente>
+@{
+    ViewBag.Title = "Compras de un CLiente";
+}
+<h2>Listar las compras de un cliente ordenado ascendentemente por el precio</h2>
+
+<div class="row">
+    <div class="col-md-12 ">
+        <table class="table">
+            <tr>
+                <th>idCompra</th>
+                <th>Nombre</th>
+                <th>Producto</th>
+                <th>Precio</th>
+            </tr>
+            @foreach (var cc in Model)
+            {
+            <tr>
+                <td>@cc.compra.Id_Compra</td>
+                <td>@cc.cliente.Nombre</td>
+                <td>@cc.producto.Nombre</td>
+                <td>@cc.producto.Precio</td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+

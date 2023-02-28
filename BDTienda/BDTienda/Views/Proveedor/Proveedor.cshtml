@@ -1,0 +1,36 @@
+﻿@model  List<BDTienda.Models.ViewModels.ListaProveedores>
+@{
+    ViewBag.Title = "Proveedores";
+}
+
+<h2>Proveedores</h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Proveedor/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12 ">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+            </tr>
+            @foreach (var prov in Model)
+            {
+                <tr>
+                    <td>@prov.idProv</td>
+                    <td>@prov.nombre</td>
+                    <td>@prov.direccion</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Proveedor/Editar/@prov.idProv">Editar</a>
+                        <a class="btn btn-danger" href="~/Proveedor/Eliminar/@prov.idProv">Eliminar</a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

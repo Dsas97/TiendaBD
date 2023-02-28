@@ -1,0 +1,36 @@
+﻿@model  List<BDTienda.Models.ViewModels.ListaCliente>
+@{
+    ViewBag.Title = "Cliente";
+}
+
+<h2>Listar los siguientes datos de los CLIENTES </h2>
+
+<div class="row" style="text-align:right;padding:5px;">
+    <a href="~/Cliente/Nuevo" class="btn btn-primary">Nuevo</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12 ">
+        <table class="table">
+            <tr>
+                <th>Nombres</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+            </tr>
+            @foreach (var cli in Model)
+            {
+                <tr>
+                    <td>@cli.nombreCompleto</td>
+                    <td>@cli.direccion</td>
+                    <td>@cli.telefono</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Cliente/Editar/@cli.idCliente">Editar</a>
+                        <a class="btn btn-danger" href="~/Cliente/Eliminar/@cli.idCliente">Eliminar</a>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

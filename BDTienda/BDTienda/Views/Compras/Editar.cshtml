@@ -1,0 +1,47 @@
+﻿@model BDTienda.Models.ViewModels.CompraNueva
+@{
+    ViewBag.Title = "Nueva Compra";
+}
+
+<h2>Editar Compra</h2>
+@using (Html.BeginForm("Editar", "Compras", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.LabelFor(c => c.idCliente)
+            @Html.TextBoxFor(c => c.idCliente, "", new { @class = "form-control", onkeypress = "return valideId(event);" })
+            @Html.LabelFor(c => c.idProducto)
+            @Html.TextBoxFor(c => c.idProducto, "", new { @class = "form-control", onkeypress = "return valideId(event);" })
+
+            <div style="text-align:right">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    function valideId(evt) {
+        var code = (evt.which) ? evt.which : evt.keyCode;
+        if (code == 8) { // backspace.
+            return true;
+        } else if (code >= 48 && code <= 57) { // is a number.
+            return true;
+        }  else { // other keys.
+            return false;
+        }
+    }
+
+    function valideLetras(evt) {
+        var code = (evt.which) ? evt.which : evt.keyCode;
+        if (code >= 65 && code <= 90) { // backspace.
+            return true;
+        } else if (code >= 97 && code <= 122) { // is a number.
+            return true;
+        } else { // other keys.
+            return false;
+        }
+    }
+</script>
+
+

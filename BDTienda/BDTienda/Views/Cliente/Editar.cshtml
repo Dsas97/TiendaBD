@@ -1,0 +1,51 @@
+﻿@model BDTienda.Models.ViewModels.ClienteNuevo
+@{
+    ViewBag.Title = "Editar Cliente";
+}
+
+<h2>Editar Cliente</h2>
+@using (Html.BeginForm("Editar", "Cliente", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ValidationSummary()
+            @Html.LabelFor(c => c.idCliente)
+            @Html.TextBoxFor(c => c.idCliente, "", new { @class = "form-control", required = "", onkeypress = "return valideId(event);" })
+            @Html.LabelFor(c => c.nombre)
+            @Html.TextBoxFor(c => c.nombre, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.LabelFor(c => c.apellidos)
+            @Html.TextBoxFor(c => c.apellidos, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.LabelFor(c => c.direccion)
+            @Html.TextBoxFor(c => c.direccion, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.LabelFor(c => c.telefono)
+            @Html.TextBoxFor(c => c.telefono, "", new { @class = "form-control", onkeypress = "return valideId(event);", maxlength = 9 })
+            <div style="text-align:right">
+                <input value="Guardar" class="btn btn-primary" type="submit" />
+            </div>
+        </div>
+    </div>
+}
+    <script type="text/javascript">
+    function valideId(evt) {
+        var code = (evt.which) ? evt.which : evt.keyCode;
+        if (code == 8) { // backspace.
+            return true;
+        } else if (code >= 48 && code <= 57) { // is a number.
+            return true;
+        }  else { // other keys.
+            return false;
+        }
+    }
+
+    function valideLetras(evt) {
+        var code = (evt.which) ? evt.which : evt.keyCode;
+        if (code >= 65 && code <= 90) { // backspace.
+            return true;
+        } else if (code >= 97 && code <= 122) { // is a number.
+            return true;
+        } else { // other keys.
+            return false;
+        }
+    }
+    </script>
+
