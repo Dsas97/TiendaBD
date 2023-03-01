@@ -8,15 +8,15 @@
 {
     <div class="row">
         <div class="col-md-12">
-            @Html.HiddenFor(p => p.idProducto)
+            @Html.ValidationSummary()
             @Html.LabelFor(p => p.idProducto)
-            @Html.TextBoxFor(p => p.idProducto, "", new { @class = "form-control", required = "", onkeypress = "return valideKey(event);" })
+            @Html.TextBoxFor(p => p.idProducto, "", new { @class = "form-control", onkeypress = "return valideKey(event);", maxlength = 5 })
             @Html.LabelFor(p => p.idProv)
-            @Html.TextBoxFor(p => p.idProv, "", new { @class = "form-control", required = "", onkeypress = "return valideKey(event);" })
+            @Html.TextBoxFor(p => p.idProv, "", new { @class = "form-control", onkeypress = "return valideKey(event);", maxlength = 5 })
             @Html.LabelFor(p => p.nombre)
-            @Html.TextBoxFor(p => p.nombre, "", new { @class = "form-control" , required = "", onkeypress = "return valideLetras(event);" })
+            @Html.TextBoxFor(p => p.nombre, "", new { @class = "form-control", onkeypress = "return valideLetras(event);", maxlength = 50 })
             @Html.LabelFor(p => p.precio)
-            @Html.TextBoxFor(p => p.precio, "", new { @class = "form-control" , required = "", onkeypress = "return valideKey(event);" })
+            @Html.TextBoxFor(p => p.precio, new { @class = "form-control", onkeypress = "return valideKey(event);" })
 
             <div style="text-align:right">
                 <input value="Guardar" class="btn btn-primary" type="submit" />

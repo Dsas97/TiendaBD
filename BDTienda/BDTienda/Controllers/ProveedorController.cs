@@ -105,16 +105,23 @@ namespace BDTienda.Controllers
         [HttpGet]
         public ActionResult Eliminar(int id)
         {
-            ProveedorNuevo provEdit = new ProveedorNuevo();
-            using (TIENDA_BDEntities db = new TIENDA_BDEntities())
+            try
             {
+                ProveedorNuevo provEdit = new ProveedorNuevo();
+                using (TIENDA_BDEntities db = new TIENDA_BDEntities())
+                {
 
-                var proveedor = db.Proveedor.Find(id);
-                db.Proveedor.Remove(proveedor);
-                db.SaveChanges();
+                    var proveedor = db.Proveedor.Find(id);
+                    db.Proveedor.Remove(proveedor);
+                    db.SaveChanges();
+                }
+                return Redirect("~/Proveedor/Proveedor");
             }
-            return Redirect("~/Proveedor/Proveedor");
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            
         }
-
     }
 }

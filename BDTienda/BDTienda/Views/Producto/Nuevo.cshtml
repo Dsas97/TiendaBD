@@ -10,14 +10,13 @@
         <div class="col-md-12">
             @Html.ValidationSummary()
             @Html.LabelFor(p => p.idProducto)
-            @Html.TextBoxFor(p => p.idProducto, "", new { @class = "form-control", required = "", onkeypress = "return valideKey(event);" })
+            @Html.TextBoxFor(p => p.idProducto, "", new { @class = "form-control", onkeypress = "return valideKey(event);", maxlength = 5 })
             @Html.LabelFor(p => p.idProv)
-            @Html.TextBoxFor(p => p.idProv, "", new { @class = "form-control", required = "", onkeypress = "return valideKey(event);" })
+            @Html.TextBoxFor(p => p.idProv, "", new { @class = "form-control", onkeypress = "return valideKey(event);", maxlength = 5 })
             @Html.LabelFor(p => p.nombre)
-            @Html.TextBoxFor(p => p.nombre, "", new { @class = "form-control", required = "", onkeypress = "return valideLetras(event);" })
+            @Html.TextBoxFor(p => p.nombre, "", new { @class = "form-control", onkeypress = "return valideLetras(event);", maxlength = 50 })
             @Html.LabelFor(p => p.precio)
-            @Html.TextBoxFor(p => p.precio, new { @class = "form-control", required = "", onkeypress = "return valideKey(event);" })
-
+            @Html.TextBoxFor(p => p.precio, new { @class = "form-control", onkeypress = "return valideKey(event);"})
 
             <div style="text-align:right">
                 <input value="Guardar" class="btn btn-primary" type="submit" />
@@ -32,9 +31,9 @@
             return true;
         } else if (code >= 48 && code <= 57) { // is a number.
             return true;
-        } else if (code == 44){
+        } else if (code == 44) {
             return true;
-        }else { // other keys.
+        } else { // other keys.
             return false;
         }
     }
@@ -45,7 +44,7 @@
             return true;
         } else if (code >= 48 && code <= 57) { // is a number.
             return true;
-        }  else { // other keys.
+        } else { // other keys.
             return false;
         }
     }

@@ -8,12 +8,13 @@
 {
     <div class="row">
         <div class="col-md-12">
+            @Html.ValidationSummary()
             @Html.LabelFor(pr => pr.idProv)
-            @Html.TextBoxFor(pr => pr.idProv, "", new { @class = "form-control", required = "", onkeypress = "return valideId(event);" })
+            @Html.TextBoxFor(pr => pr.idProv, "", new { @class = "form-control", onkeypress = "return valideId(event);", maxlength = 5 })
             @Html.LabelFor(pr => pr.nombre)
-            @Html.TextBoxFor(pr => pr.nombre, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.TextBoxFor(pr => pr.nombre, "", new { @class = "form-control", onkeypress = "return valideLetras(event);", maxlength = 50 })
             @Html.LabelFor(pr => pr.direccion)
-            @Html.TextBoxFor(pr => pr.direccion, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.TextBoxFor(pr => pr.direccion, "", new { @class = "form-control", onkeypress = "return valideLetras(event);", maxlength = 50 })
 
             <div style="text-align:right">
                 <input value="Guardar" class="btn btn-primary" type="submit" />

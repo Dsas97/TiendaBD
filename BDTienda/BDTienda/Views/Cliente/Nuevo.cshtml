@@ -10,13 +10,13 @@
         <div class="col-md-12">
             @Html.ValidationSummary()
             @Html.LabelFor(c => c.idCliente)
-            @Html.TextBoxFor(c => c.idCliente, "", new { @class = "form-control", required = "", onkeypress = "return valideId(event);" })
+            @Html.TextBoxFor(c => c.idCliente, "", new { @class = "form-control", onkeypress = "return valideId(event);", maxlength = 5 })
             @Html.LabelFor(c => c.nombre)
-            @Html.TextBoxFor(c => c.nombre, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.TextBoxFor(c => c.nombre, "", new { @class = "form-control", onkeypress = "return valideLetras(event);", maxlength = 50 })
             @Html.LabelFor(c => c.apellidos)
-            @Html.TextBoxFor(c => c.apellidos, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.TextBoxFor(c => c.apellidos, "", new { @class = "form-control", onkeypress = "return valideLetras(event);", maxlength = 50 })
             @Html.LabelFor(c => c.direccion)
-            @Html.TextBoxFor(c => c.direccion, "", new { @class = "form-control", onkeypress = "return valideLetras(event);" })
+            @Html.TextBoxFor(c => c.direccion, "", new { @class = "form-control", onkeypress = "return valideLetras(event);", maxlength = 50 })
             @Html.LabelFor(c => c.telefono)
             @Html.TextBoxFor(c => c.telefono, "", new { @class = "form-control", onkeypress = "return valideId(event);", maxlength = 9 })
 

@@ -121,22 +121,28 @@ namespace BDTienda.Controllers
         // GET: Producto
         public ActionResult ProductoRequerido()
         {
-
-            using (TIENDA_BDEntities db = new TIENDA_BDEntities())
+            try
             {
+                using (TIENDA_BDEntities db = new TIENDA_BDEntities())
+                {
 
-                List<Producto> productos = db.Producto.ToList();
-                List<Proveedor> proveedors = db.Proveedor.ToList();
+                    List<Producto> productos = db.Producto.ToList();
+                    List<Proveedor> proveedors = db.Proveedor.ToList();
 
-                var consulta = from pro in productos
-                               join prov in proveedors
-                               on pro.Id_Prov equals prov.Id_Prov 
-                               select new ProductoProveedor
-                               {
-                                   product = pro,
-                                   provee = prov
-                               };
-                return View(consulta);
+                    var consulta = from pro in productos
+                                   join prov in proveedors
+                                   on pro.Id_Prov equals prov.Id_Prov
+                                   select new ProductoProveedor
+                                   {
+                                       product = pro,
+                                       provee = prov
+                                   };
+                    return View(consulta);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }
